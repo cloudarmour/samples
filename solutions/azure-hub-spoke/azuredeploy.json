@@ -106,7 +106,7 @@
         }
     },
     "variables": {
-        "logAnalyticsWorkspace": "[uniqueString(subscription().subscriptionId, resourceGroup().id)]",
+        "logAnalyticsWorkspace": "asclab-la-lvackupgp2ws6",
         "peering-name-hub-to-spoke-one": "hub-to-spoke-one",
         "peering-name-hub-to-spoke-two": "hub-to-spoke-two",
         "peering-name-spoke-to-hub-one": "spoke-one-to-hub",
@@ -119,21 +119,7 @@
         "vmNameLinux": "vm-linux-"
     },
     "resources": [
-        {
-            "comments": "Log Analytics workspace",
-            "type": "Microsoft.OperationalInsights/workspaces",
-            "apiVersion": "2020-03-01-preview",
-            "name": "[variables('logAnalyticsWorkspace')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "sku": {
-                    "name": "PerGB2018"
-                },
-                "features": {
-                    "searchVersion": 1
-                }
-            }
-        },
+        
         {
             "comments": "Hub virtual network and diagnostic configuration",
             "type": "Microsoft.Network/virtualNetworks",
