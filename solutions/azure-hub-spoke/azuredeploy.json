@@ -159,11 +159,10 @@
                     "apiVersion": "2017-05-01-preview",
                     "name": "[concat('Microsoft.Insights/default', variables('logAnalyticsWorkspace'))]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Network/virtualNetworks', parameters('hubNetwork').name)]",
-                        "[resourceId('Microsoft.OperationalInsights/workspaces', variables('logAnalyticsWorkspace'))]"
+                        "[resourceId('Microsoft.Network/virtualNetworks', parameters('hubNetwork').name)]"
                     ],
                     "properties": {
-                        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', variables('logAnalyticsWorkspace'))]",
+                        "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', variables('logAnalyticsWorkspace'), '2015-11-01-preview'))]",
                         "logs": [
                             {
                                 "category": "VMProtectionAlerts",
